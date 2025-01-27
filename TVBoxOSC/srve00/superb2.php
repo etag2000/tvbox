@@ -8,8 +8,8 @@ $uid = $_GET["uid"];
 $token = $_GET["token"];
 
 if(empty($m3u8) and empty($ts)){
-$init = curl("http://cookies.elementfx.com/superb/superb.php",1,"");
-$data = curl("http://cookies.elementfx.com/superb/superb.php?list=1",1,"");
+$init = curl("http://cookies.elementfx.com/superb/smarttv.php",1,"");
+$data = curl("http://cookies.elementfx.com/superb/smarttv.php?list=1",1,"");
 $data = gzuncompress(base64_decode($data));
 $data = json_decode($data);
 $count = count($data);
@@ -32,7 +32,7 @@ $host = file_get_contents("./host.txt");
 $uid = file_get_contents("./uid.txt");
 $token = file_get_contents("./token.txt");
 if(time() - filemtime("./token.txt") > 300){
-$info = curl("http://cookies.elementfx.com/superb/superb.php",1,"");
+$info = curl("http://cookies.elementfx.com/superb/smarttv.php",1,"");
 $info = json_decode($info);
 $host = $info->host;
 $uid = $info->uid;
@@ -64,7 +64,7 @@ print_r(implode("\n",$data));
 if(empty($m3u8) and !empty($ts)){
 $header = array("User-Agent: Lavf/58.12.100","Accept: */*","Connection: keep-alive","Icy-MetaData: 1","userid: {$uid}","usertoken: {$token}","Cache-Control: no-cache","Pragma: no-cache");
 header("Content-Type: video/mp2t");
-header('Content-Disposition: attachment; filename=superb.ts');
+header('Content-Disposition: attachment; filename=smarttv.ts');
 print_r(curl($ts,0,$header));
 }
 
