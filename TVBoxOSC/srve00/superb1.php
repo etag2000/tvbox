@@ -32,7 +32,7 @@ $host = file_get_contents("./host.txt");
 $uid = file_get_contents("./uid.txt");
 $token = file_get_contents("./token.txt");
 if(time() - filemtime("./token.txt") > 300 or empty($token)){
-$info = curl("http://cookies.elementfx.com/superb/superb.php",1,"");
+$info = curl("http://cookies.elementfx.com/superb/smarttv.php",1,"");
 $info = json_decode($info);
 $host = $info->host;
 $uid = $info->uid;
