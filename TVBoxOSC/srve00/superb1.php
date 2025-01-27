@@ -8,8 +8,8 @@ $uid = $_GET["uid"];
 $token = $_GET["token"];
 
 if(empty($m3u8) and empty($ts)){
-$init = curl("http://cookies.elementfx.com/superb/superb.php",1,"");
-$data = curl("http://cookies.elementfx.com/superb/superb.php?list=1",1,"");
+$init = curl("http://cookies.elementfx.com/superb/smarttv.php",1,"");
+$data = curl("http://cookies.elementfx.com/superb/smarttv.php?list=1",1,"");
 $data = gzuncompress(base64_decode($data));
 $data = json_decode($data);
 $count = count($data);
