@@ -64,7 +64,7 @@ print_r(implode("\n",$data));
 if(empty($m3u8) and !empty($ts)){
 $header = array("User-Agent: Lavf/58.12.100","Accept: */*","Connection: keep-alive","Icy-MetaData: 1","userid: {$uid}","usertoken: {$token}","Cache-Control: no-cache","Pragma: no-cache");
 header("Content-Type: video/mp2t");
-header('Content-Disposition: attachment; filename=superb.ts');
+header('Content-Disposition: attachment; filename=smarttv.ts');
 print_r(curl($ts,0,$header));
 }
 
